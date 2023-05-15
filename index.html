@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/imglist.js"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="headertop">
+            <div>
+        <a href="#"><img src="./img/shouye.png" alt="">返回首页</a>
+        <a href="#"><img src="./img/shoucang.png" alt="" onclick="Bookmark()">收藏本站</a>
+    </div>
+    <div class="topinfo">
+        <p>Hi,欢迎来看宗斌吃饭!</p>
+        <a href="#" style="color:red">登陆</a>
+        <p>|</p>
+        <a href="#">注册</a>
+        <p>|</p>
+        <a href="#">全国配送</a>
+        <p>|</p>
+        <a href="#">品牌介绍</a>
+        <p>|</p>
+        <p>关注微信</p>
+        <p>会员中心</p>
+        <p>19838088987</p>
+    </div>
+        </div>
+
+        <div class="headerinfo">
+            <img src="./img/logo.jpg" alt="">
+            <div class="box">
+                <input type="text" class="input" placeholder="请输入商品">
+                <!--placeholder是文本框中的提示文字-->
+                <input type="button" value="搜索" class="button">
+            </div>
+            <div class="bala1">
+            <a href="#">全国通用礼券</a>
+            <a href="#">新西兰水果</a>
+            <a href="#">水果礼盒</a>
+        </div>
+            <a href="#" id="gouwuche"><img src="./img/gouwu.png" alt="" style="width:20px;height: 25px;vertical-align: middle;">俺的购物车</a>
+        </div>
+    </div>
+    <main>
+        <div class="lead">
+            <a href="#" style="color:white;margin-right: 30px;background-color: green; width: 200px;text-align: center;">商品分类</a>
+            <div class="noim">
+            <a href="#">首页</a>
+            <a href="#">热门水果</a>
+            <a href="#">国产水果</a>
+            <a href="#">西方水果</a>
+        </div>
+        </div>
+        <div class="maain">
+            <ul>
+                <li>
+                    <span>进口鲜果</span>
+                    <a href="#">西方进口高质量</a>
+                </li>
+                <li>
+                    <span>国产鲜果</span>
+                    <a href="#">新品上市</a>
+                </li>
+                <li>
+                    <span>新年水果礼盒</span>
+                    <a href="#">时令水果礼盒</a>
+                </li>
+                <li>
+                    <span>新年商务礼券</span>
+                    <a href="#">超大折扣,欲购从速</a>
+                </li>
+                <li>
+                    <span>新年通用礼券</span>
+                    <a href="#">享新年特惠</a>
+                </li>
+                <li>
+                    <span>礼团购专区</span>
+                    <a href="#">团购更实惠!</a>
+                </li>
+                <li>
+                    <span>水果购物卡</span>
+                    <a href="#">还不快点买?</a>
+                </li>
+            </ul>
+
+                <div id="banner">
+                    <img class="banner" style="width:calc(100vw - 20px)" src="./img/banner2.png">
+                    <div id="right"><p>></p></div>
+					<div id="cirs">
+						<div class="cir"></div>
+						<div class="cir"></div>
+					</div>
+                </div> 
+<!--  -->
+        </div>
+    </main>
+    <div id="section">
+        <div class="news">
+            <div class="news1">
+                <img src="./img/news1.jpg" alt="">
+            </div>
+            <div class="news1">
+                <img src="./img/news2.png" alt="">
+            </div>
+            <div class="news3">
+                <div><span>每日新闻</span></div>
+                <ul>
+                    <li><a href="#">李宗斌喜欢这个?</a></li>
+                    <li><a href="#">李宗斌喜欢哪个?</a>?</li>
+                    <li><a href="#">李宗斌喜欢33?</a></li>
+                    <li><a href="#">李宗斌喜欢男的?</a>?</li>
+                    <li><a href="#">我觉得不行</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="hotname"><span>热门水果捏</span></div>
+        <div class="hot">
+            <div class="ad_qing" style=" width:1190px; margin:0 auto;position:relative;height:490px;">
+                <div class="ad_qinglist" style="position:absolute; left:0px; top:0px;"><a title="" href="#" target="_blank"><img alt="" src="./img/火龙果.png"></a></div>
+                <div class="ad_qinglist" style="position:absolute; left:484px; top:0px;"><a title="" href="#" target="_blank"><img alt="" src="./img/西瓜.png"></a></div>
+                <div class="ad_qinglist" style="position:absolute; left:727px; top:0px;"><a title="" href="#" target="_blank"><img alt="" src="./img/哈密瓜.png"></a></div>
+                <div class="ad_qinglist" style="position:absolute; left:0px; top:242px;"><img alt="" src="./img/Qrcode.png"></div>
+                <div class="ad_qinglist" style="position:absolute; left:245px; top:242px;"><a title="" href="#" target="_blank"><img alt="" src="./img/奇异果.png"></a></div>
+                <div class="ad_qinglist" style="position:absolute; left:731px; top:242px;"><a title="" href="#" target="_blank"><img alt="" src="./img/榴莲.png"></a></div>
+                </div>
+        </div>
+    </div>
+   
+    <script>
+        var banner = document.getElementsByClassName("banner")
+        var baner = document.getElementById("banner")
+        var bannersrc = 'banner1'
+        var right = document.getElementById("right")
+        var index= 1
+		var indexcir = 0
+		var crs = document.getElementsByClassName("cir")
+		 function fresh(){
+			console.log("fresh")
+			for(var i = 0;i<crs.length;i++){
+				crs[i].className="cir"
+			}
+		}
+        function show(){
+			fresh();
+            banner[0].src="./img/banner"+index+".png"
+			crs[indexcir].className="cir active"
+			console.log(index)
+            if(index>1&&indexcir>0){
+                index = 1;
+				indexcir=0;
+            }else{
+                index++;
+				indexcir++
+            }
+        }
+        right.onclick=show
+        var timer = setInterval(show,4000)
+		function Bookmark(){
+			if (document.all && !window.opera) {
+				if (typeof window.external == "object") {
+					window.external.AddFavorite (document.location, document.title); return false;
+			} else return false;}
+		
+			else {
+				var ua = navigator.userAgent.toLowerCase();
+				var isWebkit = (ua.indexOf('webkit') != - 1);
+				var isMac = (ua.indexOf('mac') != - 1);
+				if (isWebkit || isMac) {
+		            alert('按下组合键: "' + (isMac ? 'Command/Cmd' : 'CTRL') + ' + D" 将本站添加到书签中');
+		            return false;
+				}
+				else {
+					x.href=document.location;
+					x.title=document.title;
+					x.rel = "sidebar";
+					return true;
+				}
+			}
+		}
+    </script>
+</body>
+</html>
