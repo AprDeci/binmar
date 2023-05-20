@@ -45,6 +45,7 @@
         </div>
             <a href="#" id="gouwuche"><img src="./img/gouwu.png" alt="" style="width:20px;height: 25px;vertical-align: middle;">俺的购物车</a>
         </div>
+        <div id="night">🌞</div>
     </div>
     <main>
         <div class="lead">
@@ -130,6 +131,13 @@
                 </div>
         </div>
     </div>
+    <div id="returntop">
+        ↑返回顶部
+    </div>
+    <div class="cover"></div>
+    <footer>
+        版权所有 &copy; 2023 彬彬商城
+    </footer>
    
     <script>
         var banner = document.getElementsByClassName("banner")
@@ -160,6 +168,7 @@
         }
         right.onclick=show
         var timer = setInterval(show,4000)
+        // 收藏按钮
 		function Bookmark(){
 			if (document.all && !window.opera) {
 				if (typeof window.external == "object") {
@@ -182,6 +191,75 @@
 				}
 			}
 		}
+        // 返回顶部
+        var retop = document.getElementById("returntop")
+        window.onscroll=function(){
+            retop.style.display='block'
+            var height = document.documentElement.scrollTop || document.body.scrollTop
+            if(height == 0)
+            retop.style.display = 'none'
+        }
+/*         retop.onclick = function(){
+            var height = document.documentElement.scrollTop || document.body.scrollTop
+            var t = setInterval(()=>{
+                height = -50
+                if(height>0){
+                    window.scrollTo(0,height);
+                }else{
+                    window.scrollTo(0,0)
+                    clearInterval(t);
+                }
+            },50)
+        } */
+        retop.onclick=function(){
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            })
+        }
+        // 夜间模式
+        var night = document.getElementById("night")
+        var brightness = document.getElementsByClassName("cover");
+        var isnight = false
+        night.onclick=function(){
+            if(!isnight){
+            brightness[0].style.display="block"
+            console.log("onclik")
+            night.innerHTML = "🌕"
+            isnight = true
+        }else{
+            brightness[0].style.display="none"
+            night.innerHTML = "🌞"
+            isnight =false
+        }
+        }
+
+            //显示遮罩
+            function cover(brightness) {
+                if (typeof(div) == 'undefined') {
+                    div = document.createElement('div');
+                    div.setAttribute('style', 'position:fixed;top:0;left:0;outline:5000px solid;z-index:99999;');
+                    document.body.appendChild(div);
+                } else {
+                    div.style.display = '';
+                }
+                div.style.outlineColor = 'rgba(0,0,0,' + brightness + ')';
+            }
+            //事件监听
+            window.addEventListener('keydown', function(e) {
+                if (e.altKey && e.keyCode == 90) { //Alt+Z:打开夜间模式
+                    cover(brightness = 0.3);
+                }
+                if (e.altKey && e.keyCode == 88) { //Alt+X:关闭
+                    cover(brightness = 0);
+                }
+                if (e.altKey && e.keyCode == 38) { //Alt+↑:增加亮度
+                    if (brightness - 0.05 > 0.05) cover(brightness -= 0.05);
+                }
+                if (e.altKey && e.keyCode == 40) { //Alt+↓:降低亮度
+                    if (brightness + 0.05 < 0.95) cover(brightness += 0.05);
+                }
+            }, false);
     </script>
 </body>
 </html>
