@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./font_mw3z7ts489g/iconfont.css">
-
+    <script src="./js/jquery-3.7.0.min.js"></script>
     <style>
         *{
             margin: 0;
@@ -102,7 +102,7 @@
         .form_input{
             width: 350px;
             height: 40px;
-            margin: 20px 0;
+            margin: 10px 0;
             padding-left: 25px;
             font-size: 13px;
             letter-spacing: 0.15px;
@@ -275,10 +275,10 @@
                     <i class="iconfont icon-bilibili-line"></i>
                 </div>
                 <span class="form_span">选择注册方式</span>
-                <input type="text" class="form_input" placeholder="用户名">
-                <div class="errormsg">用户名只能用中文!</div>
-                <input type="text" class="form_input" placeholder="Email">
-                <div class="errormsg">邮箱格式不正确,重新填写</div>
+                <input type="text" class="form_input" id="user" placeholder="用户名">
+                <div class="errormsg" id="user_msg"></div>
+                <input type="text" class="form_input" id="email_r" placeholder="Email">
+                <div class="errormsg" id="email_msg"></div>
                 <input type="password" class="form_input" placeholder="密码">
                 <button class="form_button button submit">Sigh Up</button>
                 </button>
@@ -294,8 +294,8 @@
                     <i class="iconfont icon-bilibili-line"></i>
                 </div>
                 <span class="form_span">选择登录方式或电子邮箱登陆</span>
-                <input type="text" class="form_input" placeholder="Email">
-                <div class="errormsg">邮箱格式不正确,重新填写</div>
+                <input type="text" class="form_input" id="email_login" placeholder="Email">
+                <div class="errormsg" id="email_login_msg"></div>
                 <input type="password" class="form_input" placeholder="密码捏">
                 <a href="#" class="form_link">忘记密码?</a>
                 <button class="form_button button submit">SIGN IN</button>
@@ -355,6 +355,52 @@
     }
     window.addEventListener("load", shell);
     
+    //表单验证
+    var regemail = /^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;//邮箱正则
+    $("#email_r").blur(function(){
+        	if($(this).val()==""){
+        		$("#email_msg").text("邮箱不能为空")
+        	}
+        	else{
+        		let email = $(this).val()
+        		if(!regemail.test(email)){
+        			$("#email_msg").text("邮箱错误格式")
+        		}else{
+        			$("#email_msg").text("")
+        		}
+        	}
+        })
+    $("#email_login").blur(function(){
+        	if($(this).val()==""){
+        		$("#email_login_msg").text("邮箱不能为空")
+        	}
+        	else{
+        		let email = $(this).val()
+        		if(!regemail.test(email)){
+        			$("#email_login_msg").text("邮箱错误格式")
+        		}else{
+        			$("#email_login_msg").text("")
+        		}
+        	}
+        })
+
+    var reguser = /^[a-zA-Z0-9_]{4,16}$/;				// 用户名校验规则
+    $(function () {
+        /* 昵称 */
+        $("#user").blur(function(){
+        	if($(this).val()==""){
+        		$("#user_msg").text("昵称不能为空")
+        	}else{
+        		var user = $(this).val();
+				if(!reguser.test(user)){
+					$("#user_msg").text("昵称错误")
+				}else{
+					$("#user_msg").text("")
+				}
+				
+        		}
+        })
+    })
     </script>
 </body>
 </html>
