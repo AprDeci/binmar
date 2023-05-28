@@ -3,107 +3,102 @@
 <head>
 	<meta charset="UTF-8">
 	<title>斌斌水果-商品详情页</title>
-	<link rel="stylesheet" href="./css/main.css">
-	<link rel="stylesheet" href="./css/reset.css">
+	<link rel="stylesheet" href="./css/chelizimain.css">
+	<link rel="stylesheet" href="./css/chelizireset.css">
+	
+	
+	
 	<script type="text/javascript" src="js/jquery-1.12.4.min.js"></script>
-	<script src="js/jquery.js"></script>
-		 <script>
-		
-			document.addEventListener("DOMContentLoaded", function() {
-			
-			  var numShowInput = document.querySelector(".num_show");
-			  var addBtn = document.querySelector(".add");
-			  var minusBtn = document.querySelector(".minus");
-			  var totalPrice = document.querySelector(".total em");
-			  var pricePerUnit = parseFloat(document.querySelector(".show_prize em").textContent);
-			
-			
-			  var quantity = 1;
-			  var total = pricePerUnit;
+	 <script src="js/jquery.js"></script>
+	 <script>
 	
-			  function updateQuantityAndPrice() {
-			    numShowInput.value = quantity;
-			    totalPrice.textContent = total.toFixed(2) + "元";
-			  }
+		document.addEventListener("DOMContentLoaded", function() {
+		
+		  var numShowInput = document.querySelector(".num_show");
+		  var addBtn = document.querySelector(".add");
+		  var minusBtn = document.querySelector(".minus");
+		  var totalPrice = document.querySelector(".total em");
+		  var pricePerUnit = parseFloat(document.querySelector(".show_prize em").textContent);
+		
+		
+		  var quantity = 1;
+		  var total = pricePerUnit;
+
+		  function updateQuantityAndPrice() {
+		    numShowInput.value = quantity;
+		    totalPrice.textContent = total.toFixed(2) + "元";
+		  }
+
+		  addBtn.addEventListener("click", function() {
+		    quantity++;
+		    total = quantity * pricePerUnit;
+		    updateQuantityAndPrice();
+		  });
+		
 	
-			  addBtn.addEventListener("click", function() {
-			    quantity++;
-			    total = quantity * pricePerUnit;
-			    updateQuantityAndPrice();
-			  });
-			
+		  minusBtn.addEventListener("click", function() {
+		    if (quantity > 1) {
+		      quantity--;
+		      total = quantity * pricePerUnit;
+		      updateQuantityAndPrice();
+		    }
+		  });
+	
+		  var addToCartBtn = document.querySelector(".add_cart");
+		  addToCartBtn.addEventListener("click", function(event) {
+		    event.preventDefault();
+		   
+		    alert("Product added to cart!\nQuantity: " + quantity);
+		  });
+		});
 		
-			  minusBtn.addEventListener("click", function() {
-			    if (quantity > 1) {
-			      quantity--;
-			      total = quantity * pricePerUnit;
-			      updateQuantityAndPrice();
-			    }
-			  });
+		document.addEventListener("DOMContentLoaded", function() {
+	
+		  var numShowInput = document.querySelector(".num_show");
+		  var addBtn = document.querySelector(".add");
+		  var minusBtn = document.querySelector(".minus");
+		  var totalPrice = document.querySelector(".total em");
+		  var pricePerUnit = parseFloat(document.querySelector(".show_prize em").textContent);
+		  var goodsCount = document.querySelector(".goods_count");
 		
-			  var addToCartBtn = document.querySelector(".add_cart");
-			  addToCartBtn.addEventListener("click", function(event) {
-			    event.preventDefault();
-			   
-			    alert("Product added to cart!\nQuantity: " + quantity);
-			  });
-			});
-			
-			document.addEventListener("DOMContentLoaded", function() {
+		  var quantity = 1;
+		  var total = pricePerUnit;
 		
-			  var numShowInput = document.querySelector(".num_show");
-			  var addBtn = document.querySelector(".add");
-			  var minusBtn = document.querySelector(".minus");
-			  var totalPrice = document.querySelector(".total em");
-			  var pricePerUnit = parseFloat(document.querySelector(".show_prize em").textContent);
-			  var goodsCount = document.querySelector(".goods_count");
-			
-			  var quantity = 1;
-			  var total = pricePerUnit;
-			
+	
+		  function updateQuantityAndPrice() {
+		    numShowInput.value = quantity;
+		    totalPrice.textContent = total.toFixed(2) + "元";
+		    goodsCount.textContent = quantity;
+		  }
 		
-			  function updateQuantityAndPrice() {
-			    numShowInput.value = quantity;
-			    totalPrice.textContent = total.toFixed(2) + "元";
-			    goodsCount.textContent = quantity;
-			  }
-			
-			  addBtn.addEventListener("click", function() {
-			    quantity++;
-			    total = quantity * pricePerUnit;
-			    updateQuantityAndPrice();
-			  });
-			
-			  minusBtn.addEventListener("click", function() {
-			    if (quantity > 1) {
-			      quantity--;
-			      total = quantity * pricePerUnit;
-			      updateQuantityAndPrice();
-			    }
-			  });
-			
-			
-			  var addToCartBtn = document.querySelector(".add_cart");
-			  addToCartBtn.addEventListener("click", function(event) {
-			    event.preventDefault();
-			    
-			    alert("Product added to cart!\nQuantity: " + quantity);
-			
-			
-			    quantity = 1;
-			    updateQuantityAndPrice();
-			  });
-			});
-			
-			var backToTopBtn = document.querySelector('.back-to-top-btn');
-			
-			backToTopBtn.addEventListener('click', function() {
-			  window.scrollTo({
-			    top: 1,
-			    behavior: 'smooth'
-			  });
-			});
-			 </script>
+		  addBtn.addEventListener("click", function() {
+		    quantity++;
+		    total = quantity * pricePerUnit;
+		    updateQuantityAndPrice();
+		  });
+		
+		  minusBtn.addEventListener("click", function() {
+		    if (quantity > 1) {
+		      quantity--;
+		      total = quantity * pricePerUnit;
+		      updateQuantityAndPrice();
+		    }
+		  });
+		
+		
+		  var addToCartBtn = document.querySelector(".add_cart");
+		  addToCartBtn.addEventListener("click", function(event) {
+		    event.preventDefault();
+		    
+		    alert("Product added to cart!\nQuantity: " + quantity);
+		
+		
+		    quantity = 1;
+		    updateQuantityAndPrice();
+		  });
+		});
+
+		 </script>
 </head>
 <body>
 	<!-- 头部信息 -->
@@ -153,10 +148,10 @@
 		<a href=" ">商品详情</a>
 	</div>
 	<div class="center_con clearfix">
-		<div class="main_menu fl"><img src="img/780.jpg"></div>
+		<div class="main_menu fl"><img src="img/chelizi.png"></div>
 		<div class="goods_detail_list fr">
-			<h3>越南红心火龙果</h3>
-			<p>红心火龙果原产于中美洲热带，在热带季风气候的影响下，越南出产的红心火龙果，饱满甜美，果肉鲜嫩易融，汁水丰沛。</p>
+			<h3>进口车厘子</h3>
+			<p>车厘子,号称“百果第一枝”。其果实虽小如珍珠，但色泽红艳光洁，玲珑如玛瑙宝石一般，味道甘甜而微酸，既可鲜食</p>
 			<div class="prize_bar">
 				<div class="show_prize fl">￥<em>58</em></div>
 				<div class="show_unit fl">单位：2kg</div>
@@ -183,27 +178,27 @@
 		<table class="table_one" border="0" cellspacing="20" width: 800px;>
 			<tr>
 				<td>品牌：斌斌水果</td>
-				<td>系列：越南红心火龙果</td>
+				<td>系列：进口车厘子</td>
 				<td>规格：高质量火龙果</td>
 			</tr>
 			<tr>
-				<td>产地：中国大陆</td>
-				<td>省份：海南省	</td>
-				<td>城市：海口市</td>
+				<td>产地：美国</td>
+				<td>省份：	</td>
+				<td>城市：美国西北部</td>
 			</tr>
 			<tr>
-				<td>是否为有机食品：否</td>
+				<td>是否为有机食品：是</td>
 				<td>同城服务：同城24小时送货上门</td>
 				<td>包装方式：散装</td>
 			</tr>
 			<tr>
 				<td>配送频次：1周2次</td>
-				<td>特产品类：越南火龙果</td>
-				<td>水果种类：红心火龙果</td>
+				<td>特产品类：进口车厘子</td>
+				<td>水果种类：樱桃（进口樱桃）</td>
 			</tr>
 			<tr>
 				<td>售卖方式：单品套餐</td>
-				<td>份量：3人份</td>
+				<td>份量：1人份</td>
 				<td>套餐周期：1周</td>
 			</tr>
 			<tr>
@@ -239,9 +234,6 @@
 			<tr><td><img src="img/5.jpg" ></td></tr>
 			<tr><td><img src="img/6.png" ></td></tr>
 		</table>
-	</div>
-	<div class="back-to-top">
-	  <button class="back-to-top-btn">返回顶部</button>
 	</div>
 </body>
 </html>
